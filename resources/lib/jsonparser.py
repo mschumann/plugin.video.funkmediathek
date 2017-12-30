@@ -64,15 +64,15 @@ def _parseVideo(j):
 	d['_name'] = j['attributes']['title']
 	
 	d['_thumb'] = j['attributes']['image']['url']
-	if 'text' in j['attributes']:
-		d['_plot'] = _cleanPlot(j['attributes']['text'])
+	if 'description' in j['attributes']:
+		d['_plot'] = _cleanPlot(j['attributes']['description'])
 		while '\n\n\n' in d['_plot']:
 			d['_plot'] = d['_plot'].replace('\n\n\n','\n\n')
 	d['_duration'] = str(j['attributes']['duration'])
-	if 'season' in j['attributes']:
-		d['_season'] = j['attributes']['season']
-	if 'episode' in j['attributes']:
-		d['_episode'] = j['attributes']['episode']
+	if 'seasonNr' in j['attributes']:
+		d['_season'] = str(j['attributes']['seasonNr'])
+	if 'episodeNr' in j['attributes']:
+		d['_episode'] = str(j['attributes']['episodeNr'])
 		d['_type'] = 'episode'
 	else:
 		d['_type'] = 'video'

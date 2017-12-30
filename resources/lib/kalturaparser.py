@@ -61,7 +61,7 @@ def getVideoUrl(entryId):
 	videoUrl += '?referrer=aHR0cHM6Ly93d3cuZnVuay5uZXQ='
 	d['media'] = []
 	
-	d['media'].append({'url':videoUrl, 'type':'HLS'})
+	d['media'].append({'url':videoUrl, 'stream':'HLS'})
 	for object in j[2]['objects']:
 		d['subtitle'] = []
 		lang = object['languageCode']
